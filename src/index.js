@@ -71,7 +71,7 @@ app.use(function (err, req, res, next) {
   console.error(err);
   let status = err.status || 500;
   logHelper.logEvent(
-    `user_id:${req.payload?.id} --> ${req.method}:${req.url} ${status} --> err:${err.message}`,
+    ` ${req.method}:${req.url} ${status} --> err:${err.message}`,
   );
   return res.status(status).json({
     success: false,
