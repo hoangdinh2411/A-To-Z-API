@@ -7,6 +7,7 @@ class CategoryController {
   static async create(req, res, next) {
     try {
       await categoryValidation.category.validate(req.body);
+      console.log(req.body);
       let category = new CategoryModel(req.body);
       await category.save();
       return res.status(201).json({
@@ -14,6 +15,7 @@ class CategoryController {
         data: category,
       });
     } catch (error) {
+      console.log(error);
       if (error.code === 11000) {
         return next(createHttpError.Conflict(ERROR_MESSAGES.CATEGORY.EXISTING));
       }

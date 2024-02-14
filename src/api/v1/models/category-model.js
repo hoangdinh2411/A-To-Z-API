@@ -17,7 +17,6 @@ const categorySchema = new mongoose.Schema(
       {
         ref: 'subcategory',
         type: mongoose.Schema.Types.ObjectId,
-        unique: true,
       },
     ],
   },
